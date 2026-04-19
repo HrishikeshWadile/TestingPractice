@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Website</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        .container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input, select, button {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        #mainPage {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Login Page -->
+<div class="container" id="loginPage">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Enter Username">
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- Main Page -->
+<div class="container" id="mainPage">
+    <h2>Welcome!</h2>
+
+    <!-- Dropdown -->
+    <label>Choose a City:</label>
+    <select>
+        <option>Pune</option>
+        <option>Mumbai</option>
+        <option>Delhi</option>
+    </select>
+
+    <!-- Checkboxes -->
+    <h3>Select Hobbies:</h3>
+    <input type="checkbox" checked> Reading<br>
+    <input type="checkbox"> Gaming<br>
+    <input type="checkbox"> Traveling<br>
+
+    <!-- List / Combo Box -->
+    <h3>Select a Course:</h3>
+    <select size="3">
+        <option>Computer Science</option>
+        <option>Data Science</option>
+        <option>Cyber Security</option>
+        <option>AI & ML</option>
+    </select>
+
+    <br><br>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+    function login() {
+        let user = document.getElementById("username").value;
+        let pass = document.getElementById("password").value;
+
+        if(user === "admin" && pass === "1234") {
+            document.getElementById("loginPage").style.display = "none";
+            document.getElementById("mainPage").style.display = "block";
+        } else {
+            alert("Invalid login!");
+        }
+    }
+
+    function logout() {
+        document.getElementById("mainPage").style.display = "none";
+        document.getElementById("loginPage").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
