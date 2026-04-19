@@ -1,3 +1,6 @@
+// mvn compile                                                                           
+// mvn exec:java "-Dexec.mainClass=com.demo.App"
+
 package com.demo;
 
 import org.openqa.selenium.By;
