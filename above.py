@@ -6,17 +6,8 @@ def count_students(df, threshold):
         if df.empty:
             raise ValueError("Excel file is empty")
 
-        subjects = [col for col in df.columns if col.lower() != "name"]
-
-        count = 0
-
-        for _, row in df.iterrows():
-            passed_subjects = [subj for subj in subjects if row[subj] > threshold]
-
-            if passed_subjects:
-                count += 1
-
-        return count
+        count = (df["Marks"] > threshold).sum()
+        return int(count)
 
     except Exception as e:
         print(f"Error: {str(e)}")
